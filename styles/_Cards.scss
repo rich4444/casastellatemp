@@ -6,10 +6,18 @@ $card-color4: rgb(68, 124, 197);
 $card-color5: rgb(148, 77, 20);
 $card-color6: rgb(197, 166, 65);
 
+
+.cubic{
+    /* cubic background */ 
+    background: repeating-radial-gradient(circle, transparent, transparent 13.6px, #0a6464 13.6px, #0a6464 17.6px), repeating-radial-gradient(circle, transparent, transparent 13.6px, #0a6464 13.6px, #0a6464 17.6px), rgba(10, 100, 100, 0.5);
+    background-size: 78px 78px;
+    background-position: 0 0, 39px 39px, 78px 39px;
+    background-color: rgba(10, 100, 100, 0.5);
+}
 .cards-container{
-    *{ z-index: -10; }
     width: min(900px, 90%);
     margin: auto;
+    margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -22,6 +30,7 @@ $card-color6: rgb(197, 166, 65);
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 5px 5px 10px black;
+        background-color: white;
 
         .card-draw{
             height: 200px;

@@ -1,8 +1,6 @@
-@import "./Variables";
-
-
 /* NAVBAR */
 nav{
+    z-index: 100 !important;
     position: sticky;
     top: 0;
     background-color: $main-color;
