@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Casa Stella</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
     <!-- FONTAWESOME -->
     <script defer src="https://kit.fontawesome.com/e26da2372a.js" crossorigin="anonymous"></script>
@@ -12,57 +14,139 @@
     <!-- NUNITO FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700;900&display=swap" rel="stylesheet">
 
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
 
     <!-- CUSTOM JAVASCRIPT -->
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <div>
+        <div class="hero-text">
             <h1>
                 Deje que nuestra familia<br />
                 <span class="highlight">Cuide de la suya</span>
             </h1>
             <h2>Casa Stella, hogar para adultos mayores</h2>
-            <form action="">
-                <input type="email">
-                <input type="submit" value="Consultas">
-            </form>
         </div>
+        <form action="">
+            <input name="email-top" id="email-top" type="email" placeholder="Email" required>
+            <input class="button" type="submit" value="Consultas">
+        </form>
     </header>
 
     <nav>
         <ul>
             <li>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-hand-holding-heart    "></i>
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-hand-holding-heart nav-icon"></i>
                     <p>Sobre nosotros</p>
                 </a>
             </li>
             <li>
-                <a href="#" class="selected nav-link">
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="#facilities" class="nav-link">
+                    <i class="fa fa-home nav-icon"></i>
                     <p>Instalaciones</p>
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-map-marked    "></i>
+                <a href="#reviews" class="nav-link">
+                    <i class="fa-solid fa-star nav-icon"></i>
+                    <p>Opiniones</p>
+                </a>
+            </li>
+            <li>
+                <a href="#location" class="nav-link">
+                    <i class="fas fa-map-marked nav-icon"></i>
                     <p>Ubicación</p>
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link">
-                    <i class="fas fa-mail-bulk    "></i>
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-mail-bulk nav-icon"></i>
                     <p>Contacto</p>
                 </a>
             </li>
         </ul>
     </nav>
+
+    <section id="about">
+        <h1>Quiénes somos</h1>
+
+        <div class="cards-container">
+        <!-- card -->
+        <div class="card lazy-load">
+            <div class="card-draw"></div>
+
+            <!-- wave transition -->
+            <div class="waves-container">
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C159.14,-9.36 259.02,111.03 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>
+                </div>
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>
+                </div>
+            </div>
+
+            <div class="card-text">
+                <p><span class="highlight">No somos una residencial.</span> Somos una casa de familia con experiencia en el cuidado de personas mayores.</p>
+            </div>
+        </div>
+
+        <!-- card -->
+        <div class="card lazy-load">
+            <div class="card-draw"></div>
+
+            <!-- wave transition -->
+            <div class="waves-container">
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>                    
+                </div>
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C159.14,-9.36 259.02,111.03 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>                    
+                </div>
+            </div>            
+
+            <div class="card-text">
+                <p>Si usted desea que sus seres queridos sean tratados con <span class="highlight">cariño y dignidad,</span> contáctenos. Contamos con excelentes referencias.</p>
+            </div>
+        </div>
+
+        <!-- card -->
+        <div class="card lazy-load">
+            <div class="card-draw"></div>
+
+            <!-- wave transition -->
+            <div class="waves-container">
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C159.14,-9.36 259.02,111.03 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>
+                </div>
+                <div class="card-wave">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 501.97,55.77 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path></svg>
+                </div>
+            </div>
+
+            <div class="card-text">
+                <p>Sabemos entender la situación economica de cada familia, y contamos con <span class="highlight">excelentes precios</span> adaptados a cada caso.</p>
+            </div>
+        </div>
+
+        </div>
+        
+
+    </section>
+    <section id="facilities"><h1>TESTING</h1></section>
+    <section id="reviews"><h1>TESTING</h1></section>
+    <section id="location"><h1>TESTING</h1></section>
+    <section id="contact"><h1>TESTING</h1></section>
 
 
 
