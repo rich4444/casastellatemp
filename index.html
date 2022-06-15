@@ -8,6 +8,10 @@
     <title>Casa Stella</title>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
+    <!-- ANIMATED ON SCROLL -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
     <!-- FONTAWESOME -->
     <script defer src="https://kit.fontawesome.com/e26da2372a.js" crossorigin="anonymous"></script>
 
@@ -39,7 +43,10 @@
             </h1>
             <h2>Casa Stella, hogar para adultos mayores</h2>
         </div>
-        <form action="">
+        <form name="contactForm" id="contactForm" action="https://formsubmit.co/rich4shioo@gmail.com" method="POST" class="endForm">
+            <input type="hidden" name="_next" value="http://192.168.1.119:5500/#contacted#">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nuevo mensaje de la web!">
             <input name="email-top" id="email-top" type="email" placeholder="Email" required>
             <input class="button" type="submit" value="Consultas">
         </form>
@@ -87,8 +94,11 @@
 
         <div class="cards-container">
         <!-- card -->
-        <div class="card lazy-load">
-            <div class="card-draw"></div>
+        <div class="card">
+            <div class="card-draw"
+            data-aos="fade-down"
+            data-aos-easing="ease-out"
+            data-aos-delay="0"></div>
 
             <!-- wave transition -->
             <div class="waves-container">
@@ -108,8 +118,11 @@
         </div>
 
         <!-- card -->
-        <div class="card lazy-load">
-            <div class="card-draw"></div>
+        <div class="card">
+            <div class="card-draw"
+            data-aos="fade-down"
+            data-aos-easing="ease-out"
+            data-aos-delay="200"></div>
 
             <!-- wave transition -->
             <div class="waves-container">
@@ -129,8 +142,11 @@
         </div>
 
         <!-- card -->
-        <div class="card lazy-load">
-            <div class="card-draw"></div>
+        <div class="card">
+            <div class="card-draw"
+            data-aos="fade-down"
+            data-aos-easing="ease-out"
+            data-aos-delay="400"></div>
 
             <!-- wave transition -->
             <div class="waves-container">
@@ -188,8 +204,12 @@
             </div>
         </div>
 
+        <img id="swipe-icon" src="./images/swipe.svg" alt="desliza para cambiar de foto">
+
 
     </section>
+
+
     <section id="reviews">
         <h1>Opiniones</h1>
 
@@ -307,13 +327,16 @@
             </div>
 
             </div>
-
         </div>
     
     </section>
 
     <!-- LOCATION -->
     <section id="location">
+        <!-- make the section a link to map on small screen -->
+        <a class="map-link" href="https://www.google.com.uy/maps/@-34.7151277,-55.9666492,17.96z?hl=es-419" target="_blank"></a>
+
+        <!-- text for full screen -->
         <div class="text-container">
             <h1>Ubicación</h1>
             <ul>
@@ -326,10 +349,78 @@
         </div> 
     </section>
 
+<!-- on small screens show this section -->
+    <section id="locat" class="location-auxiliar">
+        <h1>Ubicación</h1>
+        <ul>
+            <li>
+                <a href="https://www.google.com.uy/maps/@-34.7151277,-55.9666492,17.96z?hl=es-419" target="_blank">
+                    <i class="fa-solid fa-map"></i><br />
+                    Vicente Gorostiaga M2
+                </a>
+            </li>
+            <li><small>Entre Aurelio Casas y Carlos Roxlo</small></li>
+            <li><a href="tel:2292 3046"><i class="fa-solid fa-phone" target="_blank"></i> 2292 3046</a></li>
+            <li><a href="https://wa.me/59894514286?text=Quisiera saber mas sobre casa Stella!" target="_blank"><i class="fa-brands fa-whatsapp-square"></i> 094 514 286</a></li>
+        </ul>          
+        <p>Estamos al lado de la terminal de COPSA<br>Haz click en los números o en la dirección</p> 
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h1>Contacto</h1>
+
+        <div class="contact-container">
+
+            <!-- contact form -->
+            <form name="contactForm" id="contactForm" action="https://formsubmit.co/rich4shioo@gmail.com" method="POST" class="endForm">
+                <input type="hidden" name="_next" value="http://192.168.1.119:5500/#contacted#">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_subject" value="Nuevo mensaje de la web!">
+                <input type="text" name="name" id="name" placeholder="Name" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="tel" name="tel" id="tel" placeholder="Teléfono">
+                <textarea name="textarea" id="textarea" cols="30" rows="11" placeholder="Mensaje" form="contactForm"></textarea>
+                <input type="submit" value="ENVIAR">
+            </form>
+
+            <!-- contact text and draw -->
+            <div class="contact-text">
+                <div class="contact-draw">
+                    <img src="./images/contact-1.svg" alt="dibujo de una persona junto a una planilla">
+                </div>
+                <p>Consulte todas sus dudas enviando un correo, o haga click en los <a href="#location" class="highlight">números</a> para contactarnos directamente por llamada o por whatsapp.<br><br>Haga su reserva ahora. <strong class="highlight">Los cupos son limitados.</strong></p>
+            </div>
     
-    <section id="contact"><h1>TESTING</h1></section>
+        </div>
+    </section>
+
+    <!-- modal to show after send message -->
+    <div class="modal-container toggle-modal">
+        <div class="modal">
+            <div class="modal-draw"></div>
+
+            <div class="modal-text">
+                <p>
+                Mensaje enviado, nos pondremos en contacto a la brevedad.<br />
+                Si es urgente llámenos al: 
+                <a href="tel:094514286">094 514 286</a>
+                </p>
+            </div>
+
+            <div class="modal-button">CERRAR</div>
+        </div>
+    </div>
+
+    <!-- back to the top button -->
+    <div id="back-button" class="scrolled">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </div>
 
 
-
+    <footer>
+        <p><a href="https://wa.me/59893966795?text=Necesito un sitio web!" target="_blank">Hecho por Ricardo Nardochone 2022</a></p>
+    </footer>
 </body>
 </html>
