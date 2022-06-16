@@ -1,13 +1,14 @@
 /* NAVBAR */
 nav{
-    z-index: 100 !important;
+    display: block;
+    z-index: 100;
+    width: 100%;
     position: sticky;
     top: 0;
     background-color: $main-color;
     padding: 15px;
     box-shadow: 0 10px 20px black;
     min-height: 50px;
-    margin-top: -50px;
     ul{
         display: flex;
         justify-content: flex-start;
@@ -79,10 +80,9 @@ nav{
   }
 
   
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
     /* NAVBAR */
     nav{
-        z-index: 100;
         padding: 10px;
         ul{
             justify-content: space-evenly;

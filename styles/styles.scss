@@ -1,19 +1,25 @@
-*, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
+*,
+*::after,
+*::before:not(i) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  list-style: none;
 }
-
-html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 0;
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
 }
 body{
-    overflow-x: hidden !important;
-}
-body.prevent-scroll {
-    overflow: hidden;
+  overflow-x: hidden;
 }
 
 @import "./Variables";
@@ -72,6 +78,7 @@ h1{
 
 /* HEADER */
 header{
+    margin-bottom: -50px;
     min-height: 100vh;
     background: rgb(250,207,255);
     color: white;

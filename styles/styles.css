@@ -1,8 +1,19 @@
-*, *::after {
+*,
+*::after,
+*::before:not(i) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
+  list-style: none;
+}
+
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  list-style: none;
 }
 
 html {
@@ -11,11 +22,7 @@ html {
 }
 
 body {
-  overflow-x: hidden !important;
-}
-
-body.prevent-scroll {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Cards */
@@ -48,7 +55,7 @@ body.prevent-scroll {
 }
 .cards-container .card .card-draw {
   height: 200px;
-  background-image: url(../images/home-1.svg);
+  background-image: url(../images/home-2.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -63,10 +70,10 @@ body.prevent-scroll {
   fill: rgb(68, 124, 197);
 }
 .cards-container .card:nth-child(2) .waves-container .card-wave:last-child {
-  fill: rgb(85, 19, 148);
+  fill: rgb(100, 28, 167);
 }
 .cards-container .card:nth-child(2) .card-text {
-  background: linear-gradient(0deg, rgb(68, 124, 197) 0%, rgb(85, 19, 148) 100%);
+  background: linear-gradient(0deg, rgb(68, 124, 197) 0%, rgb(100, 28, 167) 100%);
 }
 .cards-container .card:nth-child(3) {
   transform: translateY(60px);
@@ -78,10 +85,10 @@ body.prevent-scroll {
   fill: rgb(197, 166, 65);
 }
 .cards-container .card:nth-child(3) .waves-container .card-wave:last-child {
-  fill: rgb(148, 77, 20);
+  fill: rgb(172, 91, 24);
 }
 .cards-container .card:nth-child(3) .card-text {
-  background: linear-gradient(0deg, rgb(197, 166, 65) 0%, rgb(148, 77, 20) 100%);
+  background: linear-gradient(0deg, rgb(197, 166, 65) 0%, rgb(172, 91, 24) 100%);
 }
 .cards-container .card .waves-container {
   margin-top: 50px;
@@ -119,7 +126,9 @@ body.prevent-scroll {
 }
 /* NAVBAR */
 nav {
-  z-index: 100 !important;
+  display: block;
+  z-index: 100;
+  width: 100%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -127,7 +136,6 @@ nav {
   padding: 15px;
   box-shadow: 0 10px 20px black;
   min-height: 50px;
-  margin-top: -50px;
 }
 nav ul {
   display: flex;
@@ -197,10 +205,9 @@ nav ul li a p {
     scrollbar-width: thin;
   }
 }
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
   /* NAVBAR */
   nav {
-    z-index: 100;
     padding: 10px;
   }
   nav ul {
@@ -316,6 +323,7 @@ h1 {
 
 /* HEADER */
 header {
+  margin-bottom: -50px;
   min-height: 100vh;
   background: rgb(250, 207, 255);
   color: white;
