@@ -376,6 +376,7 @@ header form input[type=submit]:active {
 #facilities h1 {
   color: black;
   font-weight: 900;
+  width: 90%;
 }
 #facilities h2 {
   width: min(700px, 80%);
@@ -525,13 +526,13 @@ header form input[type=submit]:active {
 }
 @media (max-width: 500px) {
   #reviews .reviews-container .reviews-track {
-    -webkit-animation: scroll 10s linear infinite;
-            animation: scroll 10s linear infinite;
-    gap: 15px;
+    -webkit-animation: scroll 15s linear infinite;
+            animation: scroll 15s linear infinite;
+    gap: 20px;
   }
   #reviews .reviews-container .reviews-track .review-card {
     flex-shrink: 0;
-    width: 200px;
+    width: 300px;
     font-size: 1.2rem;
   }
   #reviews .reviews-container .reviews-track .review-card figcaption {
@@ -544,7 +545,7 @@ header form input[type=submit]:active {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-860px);
+      transform: translateX(-1280px);
     }
   }
   @keyframes scroll {
@@ -552,7 +553,7 @@ header form input[type=submit]:active {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-860px);
+      transform: translateX(-1280px);
     }
   }
 }
