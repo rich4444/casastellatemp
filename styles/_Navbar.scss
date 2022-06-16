@@ -1,51 +1,54 @@
 /* NAVBAR */
-nav{
-    display: block;
-    z-index: 100;
+nav {
     width: 100%;
+    min-height: 50px;
+    display: block;
     position: sticky;
     top: 0;
-    background-color: $main-color;
+    z-index: 100;
     padding: 15px;
+
+    background-color: $main-color;
     box-shadow: 0 10px 20px black;
-    min-height: 50px;
-    ul{
+
+    ul {
         display: flex;
         justify-content: flex-start;
         gap: 40px;
-        list-style: none;
-        li{
-            a{
+        li {
+            a {
                 position: relative;
                 color: white;
                 transform: scale(1);
-                transition: all .3s ease-in;
-                
+                transition: all 0.3s ease-in;
+
                 /* hover and selected effect */
-                &::before{   
+                &::before {
                     content: "";
                     position: absolute;
-                    width: 0;  
+                    width: 0;
                     height: 1px;
                     top: -2px;
                     left: 50%;
                     background-color: white;
-                    box-shadow: 0 25px 0 0 white, 0 25px 3px 0 white, 0 0 3px 0 white; 
-                    transition: all 0.3s ease-in;        
+                    box-shadow: 0 25px 0 0 white, 0 25px 3px 0 white,
+                        0 0 3px 0 white;
+                    transition: all 0.3s ease-in;
                 }
 
                 /* selected */
-                &:hover::before, &.selected::before{
+                &:hover::before,
+                &.selected::before {
                     left: 0;
                     width: 100%;
                 }
 
                 /* hide icons by default */
-                .nav-icon{
+                .nav-icon {
                     display: none;
                 }
                 /* nav bar text */
-                p{
+                p {
                     font-weight: 700;
                 }
             }
@@ -53,44 +56,16 @@ nav{
     }
 }
 
-/* CUSTOM SCROLLBAR */
-::-webkit-scrollbar{
-    width: 0.5rem;
-  }
-  ::-webkit-scrollbar:hover{
-    width: 1rem;
-  }
-  ::-webkit-scrollbar-track{
-    background: rgb(131, 131, 131);
-  }
-  ::-webkit-scrollbar-thumb{
-    background: rgb(68, 68, 68);
-    border: 1px solid rgb(131, 131, 131);
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover{
-    background: rgb(29, 29, 29);
-    border-radius: 10px;
-  }
-  @supports (scrollbar-color: red blue){
-    *{
-      scrollbar-color: rgb(68, 68, 68) rgb(131, 131, 131);
-      scrollbar-width: thin;
-    }
-  }
-
-  
 @media (max-width: 700px) {
-    /* NAVBAR */
-    nav{
+    nav {
         padding: 10px;
-        ul{
+        ul {
             justify-content: space-evenly;
             gap: 0;
-            li{
-                a{
+            li {
+                a {
                     display: table-cell;
-                    vertical-align: middle; 
+                    vertical-align: middle;
                     text-align: center;
                     text-decoration: none;
                     width: 30px;
@@ -99,22 +74,23 @@ nav{
                     background-color: rgba(137, 10, 90, 0);
                     border-radius: 50%;
                     box-shadow: 0 0 0 1px $main-color;
-                    p{
+                    p {
                         /* hide navbar text */
                         display: none;
                     }
-                    .nav-icon{
+                    .nav-icon {
                         display: block;
                     }
 
-                    &:hover{
+                    &:hover {
                         color: rgb(248, 8, 160);
                         text-shadow: 0 0 5px white;
                         text-decoration: none;
                     }
 
                     /* round inside corners */
-                    &::before, &::after{
+                    &::before,
+                    &::after {
                         box-shadow: -4px -6px $main-color;
                         content: "";
                         width: 10px;
@@ -122,31 +98,69 @@ nav{
                         border-radius: 50%;
                         background-color: transparent;
                         position: absolute;
-                        top:50%;
+                        top: 50%;
                         right: 0;
                         left: 100;
                         transform: translate(144%, 5%);
                     }
-                    &::before{
+                    &::before {
                         left: 0;
                         transform: translate(-144%, 5%);
                         box-shadow: 4px -6px $main-color;
                     }
-                    &:hover::before, &.selected::before{
+                    &:hover::before,
+                    &.selected::before {
                         width: 10px;
                     }
 
                     /* selected */
-                    &.selected{
+                    &.selected {
                         transform: scale(2) translateY(40%);
                         box-shadow: 0 0 0 5px $main-color, 0 10px 10px black;
                         background-color: rgb(248, 8, 160);
                         color: white;
                         text-shadow: none;
                         text-decoration: none;
+                        z-index: 200;
                     }
                 }
             }
         }
+    }
+}
+
+/* prevent inside corners of overlaping on small screens */
+@media (max-width: 300px) {
+    nav > ul > li > a {
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+::-webkit-scrollbar:hover {
+    width: 1rem;
+}
+::-webkit-scrollbar-track {
+    background: rgb(131, 131, 131);
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(68, 68, 68);
+    border: 1px solid rgb(131, 131, 131);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(29, 29, 29);
+    border-radius: 10px;
+}
+@supports (scrollbar-color: red blue) {
+    * {
+        scrollbar-color: rgb(68, 68, 68) rgb(131, 131, 131);
+        scrollbar-width: thin;
     }
 }

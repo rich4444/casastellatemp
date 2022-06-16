@@ -21,14 +21,22 @@ html {
 body{
   overflow-x: hidden;
 }
+body.prevent-scroll{
+    overflow: hidden;
+}
 
 @import "./Variables";
 @import "./Cards";
 @import "./Navbar";
+@import "./Header";
+@import "./Facilities";
+@import "./Reviews";
+@import "./Location";
+@import "./Contact";
 
 
 
-/* General */
+/*#region General */
 .highlight{
     color: $hightlight-color;
     font-weight: 700;
@@ -46,11 +54,7 @@ ul *{
 
 section{
     padding: 100px 0;
-    width: 100vw;
-    min-height: 100vh;
-}
-section:nth-of-type(even){
-    background-color: $main-color;
+    overflow-x: hidden;
 }
 
 h1{
@@ -58,316 +62,7 @@ h1{
     margin-bottom: 50px;
     font-size: 2rem;
 }
-
-/* BUTTONS */
-.button{
-    transform: scale(1) translateY(0);
-    filter: brightness(1);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in;
-}
-.button:hover{
-    filter: brightness(1.3);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 2px 5px black;
-}
-.button:active{
-    transform: scale(1) translateY(1px);
-    filter: brightness(0.5);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 0 5px black;
-}
-
-/* HEADER */
-header{
-    margin-bottom: -50px;
-    min-height: 100vh;
-    background: rgb(250,207,255);
-    color: white;
-    background: linear-gradient(90deg, rgba(250,207,255,1) 0%, rgba(2,115,68,1) 100%);
-    background-image: linear-gradient(90deg, rgba(207, 94, 136, 0.15), rgb(4, 58, 59, 0.2) 20% 70%), url("../images/background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: grayscale(20%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 50px;
-    h1, h2{
-        text-shadow: 2px 2px 0 black, 0 0 10px black;
-        text-align: left;
-        margin: 0;
-    }
-    form{
-        margin-top: 10px;
-        width: 100vw;
-        input{
-            font-size: 1.1rem;
-            outline: none;
-            border: none;
-        }
-        input[type=email]{
-            width: min(350px, 90%);
-            padding: 8px 110px 8px 15px;
-            border-radius: 50px;
-            box-shadow: 2px 2px 5px black;
-        }
-        input[type=submit]{
-            color: white;
-            font-weight: 700;
-            background-color: $main-color;
-            width: 100px;
-            padding: 5px;
-            margin-left: -108px;
-            border-radius: 50px;
-            cursor: pointer;
-        }
-    }
-}
-
-/* FACILITIES */
-#facilities{
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    h1{
-        color: black;
-    }
-    
-    h2{
-        width: min(700px, 80%);
-        font-weight: 700;
-        margin-bottom: 50px;
-    }
-
-    /* Swiper */
-    .swiper {
-        width: min(700px, 90%);
-        .swiper-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            font-size: 22px;
-            font-weight: bold;
-            box-shadow: 0 0 0 15px white, 0 0 0 16px black, 15px 15px 20px 10px rgba(0, 0, 0, 0.5);
-            img{
-                width: 100%;
-                object-fit: cover;
-            }
-            p{
-                position: absolute;
-                padding: 20px;
-                bottom: 0;
-                background-color: rgba(5, 5, 5, 0.75);
-                text-shadow: 1px 1px 0 black;
-                border-radius: 20px 20px 0 0;
-            }
-        }
-    }
-
-    #swipe-icon{
-        margin-top: 50px;
-        filter: invert(1);
-        width: 80px;
-        height: 80px;
-        animation: swipe .5s ease-in-out infinite alternate;
-        transform-origin: bottom center;
-    }
-}
-
-@keyframes swipe {
-    0%{
-        transform: rotateZ(-10deg);
-    }
-    100%{
-        transform: rotateZ(10deg);
-    }
-}
-
-/* REVIEWS */
-#reviews{
-    .reviews-container{
-        width: min(900px, 100%);
-        padding: 20px;
-        min-height: 100%;
-        margin: auto;
-        overflow-x: hidden;
-        position: relative;
-        &::before, &::after{
-            content: "";
-            z-index: 2;
-            position: absolute;
-            height: 100%;
-            width: 50px;
-            background: rgb(255,255,255);
-            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-            top:0;
-            left: 0;
-        }
-        &::after{
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-            left: initial;
-            right: 0;
-        }
-        .reviews-track{
-            display: flex;
-            gap: 30px;
-            animation: scroll 20s linear infinite;
-            .review-card{
-                flex-shrink: 0;
-                width: 400px;
-                min-height: 300px;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.4rem;
-                border-radius: 30px;
-                box-shadow: 5px 5px 10px black;
-                background-color: white;
-                
-                .stars{
-                    margin-bottom: 20px;
-                    color: gold;
-                }
-    
-                figcaption{
-                    margin-top: 20px;
-                    text-align: right;
-                    font-size: 1.2rem;
-                }
-            }
-        }
-        
-    }
-}
-
-@keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(-1720px)}
-}
-
-/* LOCATION */
-#location{
-    position: relative;
-    height: 100vh;
-
-    background-image: url(../images/map.webp);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    /* Green bars */
-    &::after, &::before{
-        content: "";
-        width: 100%;
-        height: 50px;
-        background-color: $main-color;
-        position: absolute;
-        top: 0;
-    }
-    &::before{
-        top: initial;
-        bottom: 0;
-    }
-
-    
-    .text-container{
-        text-align: right;
-        height: 100vh;
-        padding: 100px;
-        background-color: rgba(253, 253, 253, 0.85);
-        h1{
-            text-align: right;
-        }
-        ul{
-            margin: 50px 0;
-            font-size: 1.5rem;
-            line-height: 2;
-        }
-        p{
-            font-weight: 900;
-        }
-    }
-}
-
-.location-auxiliar{
-    display: none;
-}
-
-.contact-container{
-    width: min(900px, 90%);
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    gap: 50px;
-    .contact-text{
-        flex: 1;
-        p{
-            width: 90%;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .contact-draw{
-            width: 300px;
-            margin-bottom: 30px;
-            img{
-                width: 100%;
-            }
-        }
-    }
-    .endForm{
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        min-height: 400px;
-        input, textarea{
-            outline: none;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-bottom: 2px solid $hightlight-color;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
-            resize: none;
-            &:focus{
-                background-color: rgba(255, 255, 255, 0.75);
-            }
-        }
-        input[type=submit]{
-            background-color: hsl(330, 95%, 59%);
-            color: white;
-            transform: translateY(0);
-            box-shadow:
-                inset 0 0 5px rgba(0, 0, 0, 0.5),
-                10px 10px 5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s;
-            font-weight: 900;
-            &:hover{
-                background-color: hsl(330, 95%, 62%);
-                transform: translateY(-1px);
-            }
-            &:active{
-                transform: translateY(1px);
-                background-color: hsl(330, 95%, 30%);
-                box-shadow:
-                    inset 0 0 5px rgba(0, 0, 0, 0.5),
-                    0 0 5px black;
-            }
-        }
-    }
-}
+/*#endregion general */
 
 
 .modal-container{
@@ -445,7 +140,7 @@ header{
 
 footer{
     background-color: $main-color;
-    padding: 10px;
+    padding: 50px 0 10px 10px;
     &:hover{
         color: white;
     }
@@ -478,83 +173,7 @@ footer{
     }
 }
 
-@media screen and (max-width: 700px) {
-    header{
-        background-image: linear-gradient(90deg, rgba(207, 94, 136, 0.15), rgb(4, 58, 59, 0.2) 20% 70%), url("../images/background-small.webp");
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        padding: 10px 20px 60px 20px;
-        h1, h2{
-            text-align: center;
-        }
-    }
-
-    #facilities{
-        /* Swiper */
-        .swiper {
-            width: min(700px, 90%);
-            .swiper-slide {
-                border-radius: 0;
-                font-size: 10px;
-                box-shadow: 0 0 0 5px white,
-                            0 0 0 6px black,
-                            5px 5px 10px 5px rgba(0, 0, 0, 0.5);
-                p{
-                    padding: 10px;
-                }
-            }
-        }
-    }
-
-    #location{
-        min-height: 0;
-        height: 75vh;
-        background-position: -100px;
-        justify-content: center;
-        padding: 0;
-        .text-container{
-            display: none;
-        }
-        a.map-link{
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    
-    .location-auxiliar{
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        ul{
-            font-size: 1.5rem;
-            line-height: 1.8;
-            margin-bottom: 50px;
-        }
-    }
-
-    .contact-container{
-        flex-direction: column-reverse;
-        align-items: center;
-        width: min(400px, 95%);
-
-        .contact-text{
-            p{
-                font-size: 1.2rem;
-                font-weight: 500;
-                width: 90%;
-                margin: auto;
-            }
-
-            .contact-draw{
-                width: 250px;
-                margin: auto;
-                margin-bottom: 30px;
-            }
-        }
-    }
-
+@media (max-width: 700px) {
     .modal-container > .modal > .modal-draw{
         width: 200px;
         height: 150px;

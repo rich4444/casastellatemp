@@ -45,33 +45,33 @@ if(url.includes("#contacted#")){
 const sections = document.querySelectorAll("section");
 const navItems = document.querySelectorAll(".nav-link");
 
-let options = {
-    rootMargin: '0px',
-    threshold: 0.5
-}
 
-const observer = new IntersectionObserver((entries, options) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            UpdateNavbar(entry.target);
+
+//Scroll spy
+
+function scrollSpy() {
+    sections.forEach((sec) => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
+
+        if (top >= offset - 150 && top < offset + height - 150) {
+            console.log(sec);
+            navLinks.forEach((link) => {
+                if (link.href.includes(id)) {
+                    link.classList.add("selected");
+                } else {
+                    link.classList.remove("selected");
+                }
+            });
         }
     });
-});
-
-sections.forEach((el) => {
-    observer.observe(el);
-});
-
-function UpdateNavbar (sec){
-    navLinks.forEach(nav => {
-        if(nav.href.includes(sec.id)){
-            nav.classList.add("selected");
-        } else{
-            nav.classList.remove("selected");
-        }
-    })
-    
+    if (window.scrollY < 200) {
+        navLinks.forEach((link) => link.classList.remove("selected"));
+    }
 }
+
 
 //Scroll down icon and back to top button
 const backButton = document.getElementById("back-button");
@@ -83,6 +83,7 @@ backButton.addEventListener("click", () => {
 
 window.onscroll = () => {
     checkScroll();
+    scrollSpy();
 };
 
 function checkScroll() {
